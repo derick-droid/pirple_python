@@ -1,40 +1,19 @@
-# sets
-# syntax
-# sets do not maintain the order of elements
-sets = {"element1", "element2", "element3", "element1"}
-# sets do not repeat any elements
-print(sets)
-if "element1" in sets:
-    print("yes")
-else:
-    print("No")
+# black shoes shelves with sizes customers choose the size they wish to buy
+# if chosen the stock decreases and no one is allowed to choose zero and negative numbers
 
-# converting a list to a set
-
-country_list = []
-for person in range(10):
-    country = input("enter your country: ")
-    country_list.append(country)
-
-country_set = set(country_list)
-print(country_list)
-print(country_set)
-print()
-
-# DICTIONARIES
-# syntax
-# adding value from the list into into the dictionary
-nations_list = []
-nation_dictionary = {}
-for individual in range(5):
-    nation = input("enter nation: ")
-    nations_list.append(nation)
-
-print(nations_list)
-for item in nations_list:
-    if item in nation_dictionary:
-        nation_dictionary[item] += 1
-
+black_shoes = {45: 2, 32: 4, 44: 4, 23: 5, 40: 2}
+while True:
+    choice = int(input("enter your size: "))
+    if choice <= 0:
+        print("invalid shoe size")
+    elif choice not in black_shoes:
+        print("your size is not currently available")
+    elif black_shoes[choice] <= 0:
+        print("it is out of stock")
     else:
-        nation_dictionary[item] = 1
-print(nation_dictionary)
+        black_shoes[choice] -= 1
+        print("""
+thank you for shopping with us 
+your request is being processed
+        """)
+        print(black_shoes)
